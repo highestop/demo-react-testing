@@ -1,4 +1,9 @@
 {
   "name": "demo-effective-react-testing",
-  "packageManager": "pnpm@7.3.0"
+  "packageManager": "pnpm@7.3.0",
+  "dependencies": {
+    "typescript": "^4.7.4",
+    "vite": "^2.9.13",
+    "vitest": "^0.17.0"
+  }
 }
