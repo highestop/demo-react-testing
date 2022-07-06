@@ -7,5 +7,5 @@ export default {
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
   },
-  setupFilesAfterEnv: ["./jest.setup.ts"],
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
 } as InitialOptionsTsJest;

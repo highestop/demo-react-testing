@@ -7,5 +7,7 @@
     "experimentalDecorators": true,
     "lib": ["dom", "esnext"],
     "jsx": "react-jsx"
-  }
+  },
+  "include": ["src", "jest.setup.ts"],
+  "exclude": ["node_modules"]
 }
