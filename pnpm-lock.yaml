@@ -12,8 +12,10 @@ specifiers:
   constate: ^3.3.2
   jest: ^28.1.2
   jest-environment-jsdom: ^28.1.2
+  observable-hooks: ^4.2.0
   react: ^18.2.0
   react-dom: ^18.2.0
+  rxjs: ^7.5.5
   ts-jest: ^28.0.5
   ts-node: ^10.8.2
   typescript: ^4.7.4
@@ -32,8 +34,10 @@ dependencies:
   constate: 3.3.2_react@18.2.0
   jest: 28.1.2_eudefza5kbv4z3gj6nnnsfn4wu
   jest-environment-jsdom: 28.1.2
+  observable-hooks: 4.2.0_22qqaavzrlowmrpdtym5luk3bu
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  rxjs: 7.5.5
   ts-jest: 28.0.5_lt5llx2ti6zt4eclhanfli5ynu
   ts-node: 10.8.2_fxk5i3xm3ivo7fjwhcizcinpla
   typescript: 4.7.4
@@ -2711,6 +2715,18 @@ packages:
     resolution: {integrity: sha512-JYOWTeFoS0Z93587vRJgASD5Ut11fYl5NyihP3KrYBvMe1FRRs6RN7m20SA/16GM4P6hTnZjT+UmDOt38UeXNg==}
     dev: false
 
+  /observable-hooks/4.2.0_22qqaavzrlowmrpdtym5luk3bu:
+    resolution: {integrity: sha512-bGjfGQI9vXrOIf1zAc3dmMqIXSqGQM+MLYOSQuqTzgP/8ptyDn9Gsm3tXXnohHkL7byyzHFc0/zuWyydUjtAFg==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+      rxjs: '>=6.0.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      rxjs: 7.5.5
+    dev: false
+
   /once/1.4.0:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
     dependencies:
@@ -2959,6 +2975,12 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
+    dev: false
+
+  /rxjs/7.5.5:
+    resolution: {integrity: sha512-sy+H0pQofO95VDmFLzyaw9xNJU4KTRSwQIGM6+iG3SypAtCiLDzpeG8sJrNCWn2Up9km+KhkvTdbkrdy+yzZdw==}
+    dependencies:
+      tslib: 2.4.0
     dev: false
 
   /safe-buffer/5.1.2:
@@ -3262,6 +3284,10 @@ packages:
       typescript: 4.7.4
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
+    dev: false
+
+  /tslib/2.4.0:
+    resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
     dev: false
 
   /type-check/0.3.2:

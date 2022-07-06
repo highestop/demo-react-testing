@@ -1,5 +1,21 @@
-import { fireEvent, render, RenderResult } from "@testing-library/react";
-import { ContextProvider, Inner, Outer } from ".";
+import {
+  fireEvent,
+  render,
+  renderHook as renderReactHook,
+  RenderResult,
+  waitFor,
+} from "@testing-library/react";
+import { renderHook, RenderHookResult } from "@testing-library/react-hooks";
+import { Subscription } from "rxjs";
+import {
+  ContextProps,
+  ContextProvider,
+  ContextReturnType,
+  Inner,
+  Outer,
+  timer$,
+  useContextHook,
+} from "./index";
 
 describe("render Outer", () => {
   let renderResult: RenderResult;
@@ -82,5 +98,42 @@ describe("click on test button", () => {
     expect(renderResult.queryByTestId("test-span")?.textContent).toBe(
       "update value: clicked"
     );
+  });
+});
+
+describe("render context hook", () => {
+  let renderResult: RenderHookResult<ContextProps, ContextReturnType>;
+  beforeEach(() => {
+    renderResult = renderHook(() => useContextHook({}));
+  });
+  test("should render once", () => {
+    expect(renderResult.result.current.value).toBe("no default value");
+    expect(renderResult.result.all).toHaveLength(1);
+  });
+  describe("wait for hook render complete", () => {});
+});
+
+describe("timer$ subscription", () => {
+  let subscribeFn: jest.Mock;
+  let subscription: Subscription;
+  beforeEach(() => {
+    subscribeFn = jest.fn();
+    subscription = timer$.subscribe(subscribeFn);
+    jest.useFakeTimers();
+  });
+  afterEach(() => {
+    subscription.unsubscribe();
+    jest.useRealTimers();
+  });
+  test("should not be called", () => {
+    expect(subscribeFn).toBeCalledTimes(0);
+  });
+  describe("after 1s", () => {
+    beforeEach(() => {
+      jest.advanceTimersByTime(1000);
+    });
+    test("should be called", () => {
+      expect(subscribeFn).toBeCalledTimes(1);
+    });
   });
 });

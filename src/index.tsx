@@ -1,5 +1,7 @@
 import { useState } from "react";
 import constate from "constate";
+import { interval, take, timer } from "rxjs";
+import { useSubscription } from "observable-hooks";
 
 export function Outer() {
   return (
@@ -22,11 +24,19 @@ export function Inner() {
     </>
   );
 }
+
+export const timer$ = interval(1000).pipe(take(1));
+
 export interface ContextProps {
   defaultValue?: string;
 }
 
-export function useContextHook(props: ContextProps) {
+export interface ContextReturnType {
+  value: string;
+  updateValue: (value: string) => void;
+}
+
+export function useContextHook(props: ContextProps): ContextReturnType {
   const [value, setValue] = useState<string>(
     props.defaultValue
       ? `default value: ${props.defaultValue}`
@@ -35,6 +45,7 @@ export function useContextHook(props: ContextProps) {
   const updateValue = (_value: string) => {
     setValue(`update value: ${_value}`);
   };
+  useSubscription(timer$, (timer) => setValue(`use timer: ${timer}`));
   return {
     value,
     updateValue,
