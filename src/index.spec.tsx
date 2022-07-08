@@ -1,19 +1,17 @@
 import {
   fireEvent,
   render,
-  renderHook as renderReactHook,
+  renderHook as reactReactHook,
   RenderResult,
   waitFor,
 } from "@testing-library/react";
 import { renderHook, RenderHookResult } from "@testing-library/react-hooks";
-import { Subscription } from "rxjs";
 import {
   ContextProps,
   ContextProvider,
   ContextReturnType,
   Inner,
   Outer,
-  timer$,
   useContextHook,
 } from "./index";
 
@@ -111,29 +109,4 @@ describe("render context hook", () => {
     expect(renderResult.result.all).toHaveLength(1);
   });
   describe("wait for hook render complete", () => {});
-});
-
-describe("timer$ subscription", () => {
-  let subscribeFn: jest.Mock;
-  let subscription: Subscription;
-  beforeEach(() => {
-    subscribeFn = jest.fn();
-    subscription = timer$.subscribe(subscribeFn);
-    jest.useFakeTimers();
-  });
-  afterEach(() => {
-    subscription.unsubscribe();
-    jest.useRealTimers();
-  });
-  test("should not be called", () => {
-    expect(subscribeFn).toBeCalledTimes(0);
-  });
-  describe("after 1s", () => {
-    beforeEach(() => {
-      jest.advanceTimersByTime(1000);
-    });
-    test("should be called", () => {
-      expect(subscribeFn).toBeCalledTimes(1);
-    });
-  });
 });
