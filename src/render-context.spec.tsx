@@ -13,7 +13,7 @@ import {
   Inner,
   Outer,
   useContextHook,
-} from "./index";
+} from "./render-context";
 
 describe("render Outer", () => {
   let renderResult: RenderResult;

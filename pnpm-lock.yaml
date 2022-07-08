@@ -13,6 +13,7 @@ specifiers:
   jest: ^28.1.2
   jest-environment-jsdom: ^28.1.2
   observable-hooks: ^4.2.0
+  prettier: ^2.7.1
   react: ^18.2.0
   react-dom: ^18.2.0
   rxjs: ^7.5.5
@@ -35,6 +36,7 @@ dependencies:
   jest: 28.1.2_eudefza5kbv4z3gj6nnnsfn4wu
   jest-environment-jsdom: 28.1.2
   observable-hooks: 4.2.0_22qqaavzrlowmrpdtym5luk3bu
+  prettier: 2.7.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   rxjs: 7.5.5
@@ -2841,6 +2843,12 @@ packages:
   /prelude-ls/1.1.2:
     resolution: {integrity: sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==}
     engines: {node: '>= 0.8.0'}
+    dev: false
+
+  /prettier/2.7.1:
+    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: false
 
   /pretty-format/27.5.1:
