@@ -13,9 +13,7 @@ jest.mock("./component-mock.tsx", () => {
 
 jest.mock("./component-mock-hook.ts", () => {
   return {
-    useMockComponentHook: () => {
-      return cbFn;
-    },
+    useMockComponentHook: () => cbFn,
   };
 });
 
