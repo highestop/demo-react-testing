@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { MockComponent } from "./component-mock";
-import { useMockComponentHook } from "./component-mock-hook";
+import { MockComponent } from "./mock-component";
+import { useMockComponentHook } from "./mock-component-hook";
 
-export function TestComponent() {
+export function MockComponentContainer() {
   const cb = useMockComponentHook();
   useEffect(() => {
     cb();

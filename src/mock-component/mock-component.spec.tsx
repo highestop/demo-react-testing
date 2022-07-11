@@ -1,17 +1,17 @@
 import { render, screen } from "@testing-library/react";
-import { TestComponent } from "./component-test";
+import { MockComponentContainer } from "./mock-component-container";
 
 const cbFn = jest.fn();
 
 // need to mock module on top level
 // mocked just inside this test file
-jest.mock("./component-mock.tsx", () => {
+jest.mock("./mock-component.tsx", () => {
   return {
     MockComponent: () => <div data-testid="mock-div"></div>,
   };
 });
 
-jest.mock("./component-mock-hook.ts", () => {
+jest.mock("./mock-component-hook.ts", () => {
   return {
     useMockComponentHook: () => cbFn,
   };
@@ -19,7 +19,7 @@ jest.mock("./component-mock-hook.ts", () => {
 
 describe("render component", () => {
   beforeEach(() => {
-    render(<TestComponent></TestComponent>);
+    render(<MockComponentContainer></MockComponentContainer>);
   });
   test("fn should be called", () => {
     expect(cbFn).toBeCalled();
