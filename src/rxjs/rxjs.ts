@@ -1,3 +1,3 @@
-import { interval, take } from "rxjs";
+import { timer } from "rxjs";
 
-export const timer$ = interval(1000).pipe(take(1));
+export const timer$ = timer(1000);
