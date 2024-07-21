@@ -1,6 +1,9 @@
 {
     "compilerOptions": {
-        "types": ["jest", "node"],
+        "types": [
+            "jest",
+            "node"
+        ],
         "jsx": "react-jsx"
     }
 }
