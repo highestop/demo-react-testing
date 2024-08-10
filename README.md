@@ -1,1 +1,1 @@
-# demo-effective-react-testing
+# demo-react-testing
